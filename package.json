@@ -1,0 +1,22 @@
+{
+  "name": "bigjs-literal",
+  "version": "0.0.1",
+  "description": "Template literal for Big.js expressions.",
+  "main": "src/index.js",
+  "repository": "https://github.com/reu/bigjs-literal",
+  "author": "Rodrigo Navarro",
+  "license": "MIT",
+  "scripts": {
+    "compile": "npx pegjs -o src/parser.js src/parser.pegjs",
+    "prepublish": "npm run compile",
+    "test": "npm run compile && npx mocha"
+  },
+  "devDependencies": {
+    "big.js": "^5",
+    "mocha": "^8.1.1",
+    "pegjs": "^0.10.0"
+  },
+  "peerDependencies": {
+    "big.js": "*"
+  }
+}
