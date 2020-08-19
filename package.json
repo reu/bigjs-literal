@@ -7,12 +7,15 @@
   "author": "Rodrigo Navarro",
   "license": "MIT",
   "scripts": {
+    "benchmark": "npm run compile && node benchmark/against-raw-big.js",
     "compile": "npx pegjs -o src/parser.js src/parser.pegjs",
     "prepublish": "npm run compile",
     "test": "npm run compile && npx mocha"
   },
   "devDependencies": {
+    "benchmark": "^2.1.4",
     "big.js": "^5",
+    "microtime": "^3.0.0",
     "mocha": "^8.1.1",
     "pegjs": "^0.10.0"
   },
