@@ -7,7 +7,8 @@ function bigjsLiteral(exps, ...numbers) {
     .reduce((refs, n, i) => ({ ...refs, [`REF${i}`]: new Big(n) }), {});
 
   const refExp = exps
-    .map((part, i) => refs[`REF${i}`] ? part.toLowerCase() + `REF${i}` : part)
+    .map(part => part.toLowerCase())
+    .map((part, i) => refs[`REF${i}`] ? `${part} REF${i}` : part)
     .join(" ")
     .trim();
 
