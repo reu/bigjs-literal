@@ -1,5 +1,7 @@
 # big.js literal
 
+[![Build Status](https://travis-ci.org/reu/bigjs-literal.png)](https://travis-ci.org/reu/bigjs-literal)
+
 Template literal for [https://www.npmjs.com/package/big.js](Big.js) expressions.
 
 ## Install
