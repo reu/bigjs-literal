@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/reu/bigjs-literal.png)](https://travis-ci.org/reu/bigjs-literal)
 
-Template literal for [https://www.npmjs.com/package/big.js](Big.js) expressions.
+Template literal for [big.js](https://github.com/MikeMcl/big.js/) expressions.
 
 ## Install
 
@@ -38,4 +38,26 @@ b`2 gte 1`
 
 // `sqrt` and `abs` can be called as functions
 b`sqrt(9) + abs(-10)`
+
+// As you might expect, you can chain all other big.js methods
+b`0.1 + 0.2`.times(3).toFixed(2) === "0.90"
+```
+
+All binary operations can be written using infix notation:
+
+```javascript
+b`1 plus 2`
+b`1 minus 2`
+b`2 times 5`
+b`2 pow 2`
+```
+
+There are also operators for both `pow` and `mod`:
+```javascript
+// Same as new Big(2).pow(4)
+b`2^4`
+b`2**4`
+
+// Same as new Big(10).mod(new Big(3))
+b`10 % 3`
 ```
