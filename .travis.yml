@@ -1,0 +1,20 @@
+language: node_js
+script: npm test
+node_js:
+- '7'
+- '8'
+- '9'
+- '10'
+- '11'
+- '12'
+- '13'
+- '14'
+deploy:
+  provider: npm
+  email: rnavarro@rnavarro.com.br
+  api_key:
+    secure: YUvMpSogS/DfE8m6ZUI9gP5apU3KfArRS8xQUaaG6gDUJEh8Y8loOG3fofeDO8zgbONTR0fQLDblrLlvm6+/HSa6H/SVXKtlpnKNPebLFyD0q2T8PkWkI67eMFn9ZzRmiXqSuEq/K0AG8b+roXkDPkDcRYzHgCk7h+3qMwlqApsosV6kOwBgP1IeFj8DSHS/BVyttTRTBwmD6cZu0UKM3jiS7/lTx9NtDfYQsvn646/3FhvG8s0Z2xVET12g/yABdAcZJjWMfv9dR5KnelDdQatZv5q+vKM1jIunbAQD6llzcAoBlm6vrD7ysAhylXSk4g9ZjVCoarENj5JcOnA/uSh1XKAMbnUmJcV/3jkL0uU94Rxr/RZ4FZ/HE5pQrG/FL8CrG7uDMRfALw1i31c0dzzZHKKX+loiQLQ+GrSZO2QHfOf7UuRA1shnQPIVEwPVhB+lKOvyjEHeI/+kEV7oRwHLtq+bcsqnaXN+r8yA1QZ2v8GHJWnqyqzMe7V6VEpQiyR90Blxy15kMFJoHuNX3bV4+cx8XCHY2Hp2BA6Au9gqvBUmjtTyTVIXau0FKAucC5zzE5pnPO8LGkMXkcZxLt4ghXnngfORQb0hICaBSTAoB6QDY2XjqOfJjQF8WEirEw+Yz8fcJLC4mIfQwlS1BpjDH1ghygjDkz4ZiCoRkys=
+  on:
+    tags: true
+    repo: reu/bigjs-literal
+  skip_cleanup: 'true'
