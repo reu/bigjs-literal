@@ -19,10 +19,10 @@ Use the template literal to write your expressions, interpolations will safelly 
 ```javascript
 import b from "bigjs-literal";
 
-// Same as new Big(0.1).add(new Big(0.2))
+// Same as new Big(0.1).plus(new Big(0.2))
 b`0.1 + 0.2`
 
-// Same as new Big(1).add(new Big(10.5))
+// Same as new Big(1).plus(new Big(10.5))
 b`1 + ${10.5}`
 
 // Expressions can be as complex as you like
