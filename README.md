@@ -2,7 +2,24 @@
 
 [![Build Status](https://travis-ci.org/reu/bigjs-literal.png)](https://travis-ci.org/reu/bigjs-literal)
 
-Template literal for [big.js](https://github.com/MikeMcl/big.js/) expressions.
+Template literal for [big.js](https://github.com/MikeMcl/big.js/) expressions, so complex expressions can be readable:
+
+```javascript
+import Big from "big.js";
+import b from "bigjs-literal";
+
+const x = Big(0.1);
+const y = 0.2;
+const z = "0.3";
+
+// Now you can write this:
+const res1 = b`0.5 * ${x} + ${y} / (${z} + 3)`;
+
+// Instead of this:
+const res2 = Big(0.5).times(Big(x)).plus(Big(y).div(Big(z).plus(Big(3))));
+
+res1.eq(res2); // true
+```
 
 ## Install
 
