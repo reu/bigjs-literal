@@ -1,6 +1,6 @@
 {
   "name": "bigjs-literal",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Template literal for Big.js expressions.",
   "main": "src/index.js",
   "repository": "https://github.com/reu/bigjs-literal",
@@ -29,5 +29,11 @@
   },
   "peerDependencies": {
     "big.js": "*"
-  }
+  },
+  "keywords": [
+    "big.js",
+    "decimal",
+    "babel-plugin-macros",
+    "babel-macros"
+  ]
 }
