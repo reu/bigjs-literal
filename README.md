@@ -78,3 +78,20 @@ b`2**4`
 // Same as new Big(10).mod(new Big(3))
 b`10 % 3`
 ```
+
+## Performance
+
+Since we have to parse and evalute the expression in runtime, code using bigjs-literal
+will perform worse than pure big.js expressions.
+
+This performance problem can be eliminated if you use babel. Just import the macro version of the library
+and you have the best of both worlds, since all the expressions will be parsed in compile time.
+
+Just add the `babel-plugin-macros` plugin (which is included by default by `create-react-app`) and replace your imports with `bigjs-literal/macro`:
+
+```javascript
+import b from "bigjs-literal/macro";
+
+// This expression will be parsed and transformed in compile time
+b`(14 * 3) + 5 / ${10.5} - 2 * ${"3.5521"}`
+```

@@ -1,22 +1,30 @@
 {
   "name": "bigjs-literal",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Template literal for Big.js expressions.",
   "main": "src/index.js",
   "repository": "https://github.com/reu/bigjs-literal",
   "author": "Rodrigo Navarro",
   "license": "MIT",
+  "config": {
+    "exportAliases": {
+      "macro": "./src/macro"
+    }
+  },
   "scripts": {
     "benchmark": "npm run compile && node benchmark/against-raw-big.js",
     "compile": "npx pegjs -o src/parser.js src/parser.pegjs",
-    "prepublish": "npm run compile",
-    "test": "npm run compile && npx mocha"
+    "prepublish": "npx generate-export-aliases && npm run compile",
+    "test": "npm run compile && npx jest"
   },
   "devDependencies": {
+    "@babel/core": "^7.11.4",
+    "babel-plugin-macros": "^2.8.0",
     "benchmark": "^2.1.4",
     "big.js": "^5",
+    "generate-export-aliases": "^1.1.0",
+    "jest": "^26.4.1",
     "microtime": "^3.0.0",
-    "mocha": "^8.1.1",
     "pegjs": "^0.10.0"
   },
   "peerDependencies": {
