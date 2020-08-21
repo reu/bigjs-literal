@@ -12,7 +12,7 @@ function bigjsLiteral(exps, ...numbers) {
     .join(" ")
     .trim();
 
-  const eval = ast => {
+  const evaluate = ast => {
     switch (ast.type) {
       case "NUMBER":
         return new Big(ast.value);
@@ -23,10 +23,10 @@ function bigjsLiteral(exps, ...numbers) {
       case "FUNCTION": {
         switch (ast.name) {
           case "sqrt":
-            return eval(ast.arguments[0]).sqrt();
+            return evaluate(ast.arguments[0]).sqrt();
 
           case "abs":
-            return eval(ast.arguments[0]).abs();
+            return evaluate(ast.arguments[0]).abs();
 
           default:
             throw new Error(`Unsupported function: ${ast.name}`);
@@ -37,51 +37,51 @@ function bigjsLiteral(exps, ...numbers) {
         switch (ast.operator) {
           case "+":
           case "plus":
-            return eval(ast.left).plus(eval(ast.right));
+            return evaluate(ast.left).plus(evaluate(ast.right));
 
           case "-":
           case "minus":
-            return eval(ast.left).minus(eval(ast.right));
+            return evaluate(ast.left).minus(evaluate(ast.right));
 
           case "*":
           case "times":
-            return eval(ast.left).times(eval(ast.right));
+            return evaluate(ast.left).times(evaluate(ast.right));
 
           case "/":
           case "div":
-            return eval(ast.left).div(eval(ast.right));
+            return evaluate(ast.left).div(evaluate(ast.right));
 
           case "%":
           case "mod":
-            return eval(ast.left).mod(eval(ast.right));
+            return evaluate(ast.left).mod(evaluate(ast.right));
 
           case "^":
           case "**":
           case "pow":
-            return eval(ast.left).pow(parseInt(eval(ast.right), 10));
+            return evaluate(ast.left).pow(parseInt(evaluate(ast.right), 10));
 
           case "==":
           case "eq":
-            return eval(ast.left).eq(eval(ast.right));
+            return evaluate(ast.left).eq(evaluate(ast.right));
 
           case ">=":
           case "gte":
-            return eval(ast.left).gte(eval(ast.right));
+            return evaluate(ast.left).gte(evaluate(ast.right));
 
           case ">":
           case "gt":
-            return eval(ast.left).gt(eval(ast.right));
+            return evaluate(ast.left).gt(evaluate(ast.right));
 
           case "<=":
           case "lte":
-            return eval(ast.left).lte(eval(ast.right));
+            return evaluate(ast.left).lte(evaluate(ast.right));
 
           case "<":
           case "lt":
-            return eval(ast.left).lt(eval(ast.right));
+            return evaluate(ast.left).lt(evaluate(ast.right));
 
           case "cmp":
-            return eval(ast.left).cmp(eval(ast.right));
+            return evaluate(ast.left).cmp(evaluate(ast.right));
 
           default:
             throw new Error(`Unsupported operator: ${ast.operator}`);
@@ -90,7 +90,7 @@ function bigjsLiteral(exps, ...numbers) {
     }
   }
 
-  return eval(parse(refExp));
+  return evaluate(parse(refExp));
 }
 
 module.exports = bigjsLiteral;
