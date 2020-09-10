@@ -18,4 +18,8 @@ describe("bigjs-literal/macro", () => {
   it("transforms interpolated expressions", () => {
     expect(transform("./test/macro/interpolation.js")).toMatchSnapshot();
   });
+
+  it("transforms recursive interpolated expressions", () => {
+    expect(transform("./test/macro/recursive-interpolation.js")).toMatchSnapshot();
+  });
 });

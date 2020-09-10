@@ -2,7 +2,7 @@ const { createMacro } = require("babel-plugin-macros");
 const { parse } = require("./parser");
 
 function bigjsLiteralMacro({ references, babel, source }) {
-  references.default.forEach(({ parentPath }) => {
+  references.default.reverse().forEach(({ parentPath }) => {
     if (parentPath.type === "TaggedTemplateExpression") {
       parentPath.replaceWith(generateAST(babel.types, parentPath));
     }

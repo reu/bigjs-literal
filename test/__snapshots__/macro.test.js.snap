@@ -7,3 +7,5 @@ exports[`bigjs-literal/macro transforms interpolated expressions 1`] = `
 
 require(\\"big.js\\")(\\"1.5\\").plus(require(\\"big.js\\")(a));"
 `;
+
+exports[`bigjs-literal/macro transforms recursive interpolated expressions 1`] = `"require(\\"big.js\\")(\\"1.5\\").plus(require(\\"big.js\\")(require(\\"big.js\\")(\\"2.5\\").plus(require(\\"big.js\\")(\\"3.5\\"))));"`;
