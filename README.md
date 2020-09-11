@@ -42,6 +42,10 @@ b`0.1 + 0.2`
 // Same as new Big(1).plus(new Big(10.5))
 b`1 + ${10.5}`
 
+// Precedence rules are properly followed
+// Big(2).plus(Big(4).times(Big(3)))
+b`2 + 4 * 3`
+
 // Expressions can be as complex as you like
 b`(14 * 3) + 5 / ${10.5} - 2 * ${"3.5521"}`
 
@@ -53,7 +57,7 @@ b`1 == 1`
 b`2 >= ${1}`
 b`2 gte 1`
 
-// `sqrt` and `abs` can be called as functions
+// bigjs prototype functions use prefix notation
 b`sqrt(9) + abs(-10)`
 
 // As you might expect, you can chain all other big.js methods
@@ -85,11 +89,11 @@ Since we have to parse the expression in runtime, code using this library
 will perform worse than pure big.js expressions.
 
 This performance impact can be eliminated by using a Babel. The library comes with a macro that
-will parse the expressions in Babel compile time.
+will parse and transform the expressions during Babel compilation.
 
-To use this macro, add the [babel-plugin-macros](https://github.com/kentcdodds/babel-plugin-macros) plugin
-(if you are using [create-react-app](https://github.com/facebook/create-react-app) this plugin is included by default)
-and import the library as `bigjs-literal/macro`:
+To use the macro, add the [babel-plugin-macros](https://github.com/kentcdodds/babel-plugin-macros) plugin
+and import the library as `bigjs-literal/macro`. Note that if you are using [create-react-app](https://github.com/facebook/create-react-app))
+the [babel-plugin-macros](https://github.com/kentcdodds/babel-plugin-macros) is already included by default.
 
 ```javascript
 import b from "bigjs-literal/macro";
